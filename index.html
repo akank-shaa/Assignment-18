@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="p-2">
+
+    <input id="start" class="rounded-md border border-gray-700" placeholder="Start?" />
+
+    <input id="end" class="rounded-md border border-gray-700" placeholder="End?" />
+
+    <input id="from" class="rounded-md border border-gray-700" placeholder="From?" />
+
+    <input id="upto" class="rounded-md border border-gray-700" placeholder="Upto?" />
+
+    <button onclick="showTable()" class="rounded-md bg-indigo-700 py-1 px-5">Show</button>
+
+    <div id="table" class="flex flex-wrap gap-1"></div>
+
+    <script>
+
+        function showTable() {
+            const start = document.getElementById('start').value;
+
+            const end = document.getElementById('end').value;
+
+            const from = document.getElementById('from').value;
+
+            const upto = document.getElementById('upto').value;
+
+            const div = document.getElementById('table');
+            let myHTML = '';
+            if(start > end){
+                myHTML='';
+            }
+            for (let num = start; num <= end; num++) {
+                const heading = `<div><p class="p-1 bg-indigo-400 mb-2"> ${num} kaa table</p>`
+                myHTML += heading;
+
+                for (let i = from; i <= upto; i++) {
+                    const row = `<p>${num} x ${i} = ${num * i}</p>`
+                    myHTML += row;
+
+                }
+                const footer = `<h3 class="p-2 bg-red-400 mb-2"> ${num} kaa table khatam</h3> </div>`
+                myHTML += footer;
+
+            }
+            div.innerHTML = myHTML;
+        }
+
+
+
+        //     function getPrime(x, y) {
+        //         if (x > y) {
+        //             return [];
+        //         }
+
+        //         const result = [];
+        //         for (let num = x; num <= y; num++) {
+        //             let prime = true; //boolean
+        //             for (let i = 2; i < num; i++) {
+        //                 if (num % i == 0) {
+        //                     prime = false;
+        //                     break;
+        //                 }
+        //             }
+        //             if (prime) {
+        //                 result.push(num);
+        //             }
+        //         }
+        //         return result;
+        //     }
+
+
+        //    const xyz =  getPrime(6, 25);
+        //     console.log(xyz);
+    </script>
+</body>
+
+</html>
